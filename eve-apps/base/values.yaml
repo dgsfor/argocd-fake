@@ -1,0 +1,26 @@
+version: 0.0.1
+
+namespace:
+  - eve-pre
+  - eve
+  - eve-istio-gateway
+  - eve-istio-vs
+
+dockerconfigjson:
+  # hwcloud
+  swr:
+    enable: true
+    name: swr-image-pull-secret
+    namespace:
+    - eve-pre
+    - eve
+  # azure
+  mcr:
+    enable: false
+    name: mcr-image-pull-secret
+    namespace:
+    - eve-pre
+    - eve
+tls:
+  name: secret-x-dgsfor-com
+  namespace: istio-system

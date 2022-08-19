@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  tls.crt: xxxxxx
+  tls.key: xxxxxx
+kind: Secret
+metadata:
+  name: {{ .Values.tls.name }}
+  namespace: {{ .Values.tls.namespace }}
+type: Opaque

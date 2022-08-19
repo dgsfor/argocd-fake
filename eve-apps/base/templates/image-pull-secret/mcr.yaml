@@ -1,0 +1,13 @@
+{{ if .Values.dockerconfigjson.mcr.enable }}
+{{- range .Values.dockerconfigjson.mcr.namespace }}
+apiVersion: v1
+data:
+  .dockerconfigjson: xxxxxxx
+kind: Secret
+metadata:
+  name: {{ $.Values.dockerconfigjson.mcr.name }}
+  namespace: {{ . }}
+type: kubernetes.io/dockerconfigjson
+---
+{{- end }}
+{{- end }}
